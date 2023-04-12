@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>replit</title>
+  <link href="style.css" rel="stylesheet" type="text/css" />
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+</head>
+
+<body>
+
+ <div ng-app="myApp" ng-controller="myCtrl">
+      
+      Add expression <input type="text" ng-model="exp" id="expe"><br>
+    <div>
+      <div class="btnrow">
+        <button ng-model="calc" ng-click="addex(1)" value="1">1</button>
+        <button ng-model="calc" ng-click="addex(2)" value="2">2</button>
+        <button ng-model="calc" ng-click="addex(3)" value="3">3</button>
+      </div>
+
+      
+    </div>
+
+      
+      <button ng-model="calc" ng-click="calculate()">Calculate</button>
+
+   
+   
+      Your Expression : {{exp}}
+      <br>
+      Solution : {{val}}
+
+</div>
+
+<script>
+      var flag = 0;
+      var app = angular.module('myApp', []);
+      app.controller('myCtrl', function($scope) {
+        $scope.val = 0;
+        $scope.calculate = function() {
+            $scope.val = eval($scope.exp);
+          $scope.exp = "";
+        }
+        $scope.addex = function(num) {
+          if(){
+            $scope.exp = $scope.exp + "" + num + ""; 
+          }else{
+            $scope.exp = "" + num + "";
+            $scopel.flag = 1;
+          }
+        }
+        
+      });
+
+     
+
+
+
+</script> 
+
+
+  
+</body>
+
+</html>
