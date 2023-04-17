@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width">
-  <title>replit</title>
+  <title>Angular Calculator</title>
   <link href="style.css" rel="stylesheet" type="text/css" />
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
 </head>
@@ -13,20 +13,44 @@
 
  <div ng-app="myApp" ng-controller="myCtrl">
       
-      Add expression <input type="text" ng-model="exp" id="expe"><br>
+      Calculator 
+   <br />
+   <br />
+    <input type="text" ng-model="exp" id="expe" placeholder="Enter Expression"><br>
     <div>
       <div class="btnrow">
         <button ng-model="calc" ng-click="addex(1)" value="1">1</button>
         <button ng-model="calc" ng-click="addex(2)" value="2">2</button>
         <button ng-model="calc" ng-click="addex(3)" value="3">3</button>
+        <button ng-model="calc" ng-click="addex('+')" value="+">+</button>
+        
+      </div>
+      <div class="btnrow">
+        <button ng-model="calc" ng-click="addex(4)" value="1">4</button>
+        <button ng-model="calc" ng-click="addex(5)" value="2">5</button>
+        <button ng-model="calc" ng-click="addex(6)" value="3">6</button>
+        <button ng-model="calc" ng-click="addex('-')" value="-">-</button>
+      </div>
+      <div class="btnrow">
+        <button ng-model="calc" ng-click="addex(7)" value="1">7</button>
+        <button ng-model="calc" ng-click="addex(8)" value="2">8</button>
+        <button ng-model="calc" ng-click="addex(9)" value="3">9</button>
+        <button ng-model="calc" ng-click="addex('*')" value="*">*</button>
+      </div>
+      <div class="btnrow">
+        <button ng-model="calc" ng-click="addex(0)" value="0">0</button>
+        <button ng-model="calc" ng-click="addex('.')" value=".">.</button>
+        <button ng-model="calc" ng-click="addex('/')" value="/">/</button>
       </div>
 
       
     </div>
 
-      
+      <br />
+        <button ng-model="calc" ng-click="addex('bck')" value="=">Bcksp</button>
       <button ng-model="calc" ng-click="calculate()">Calculate</button>
-
+      <br />
+      <br />
    
    
       Your Expression : {{exp}}
@@ -42,22 +66,23 @@
         $scope.val = 0;
         $scope.calculate = function() {
             $scope.val = eval($scope.exp);
-          $scope.exp = "";
+            $scope.exp = "";
         }
         $scope.addex = function(num) {
-          if(){
-            $scope.exp = $scope.exp + "" + num + ""; 
+          if(num == 'bck'){
+            $scope.exp = $scope.exp.substring(0, $scope.exp.length-1);
           }else{
-            $scope.exp = "" + num + "";
-            $scopel.flag = 1;
+            if(flag){
+              $scope.exp = $scope.exp + "" + num + ""; 
+            }else{
+              $scope.exp = "" + num + "";
+              flag = 1;
+            }
           }
+          
         }
         
       });
-
-     
-
-
 
 </script> 
 

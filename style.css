@@ -1,4 +1,22 @@
 html {
   height: 100%;
   width: 100%;
+  padding :40px;
+}
+
+
+input{
+  border-radius: 10px;
+  border : 2px solid black;
+  margin: 10px auto 10px auto;
+  height : 30px;
+  font-size: 15px;
+}
+
+button{
+  height : 35px;
+  width :fit-content;
+  min-width: 35px;
+  background: lightblue;
+  
 }
